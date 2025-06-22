@@ -14,6 +14,39 @@
     --shadow: 0 4px 12px rgba(0, 139, 139, 0.15);
     --border-radius: 8px;
 }
+.navbar {
+  display: flex;
+  align-items: center;    /* Vertically center everything */
+  justify-content: space-between; /* Optional, space links properly */
+  padding: 0 1rem;       /* Optional spacing left and right */
+  height: 80px;          /* Give your navbar a fixed height if needed */
+  background-color: #222; /* Example background color */
+margin-top: 10px;
+  width: 50%;           /* Full width */
+  z-index: 1000;         /* Ensure it stays above other content */
+}
+
+.nav-logo img {
+  display: block;      /* Remove extra whitespace under image */
+  width: 50px;           /* Keep the size you want */
+  height: auto;          /* Maintain aspect ratio */
+}
+
+
+
+.harvest-tagline {
+  white-space: nowrap;       /* prevent wrapping */
+  font-size: 1rem;           /* adjust size as you like */
+  font-weight: 400;
+  font-family: 'Poppins', sans-serif;
+  color: #ffffff;            /* white color for all regular text */
+  /* Remove overflow and ellipsis so text won't cut off */
+}
+
+.harvest-tagline b {
+  color: var(--primary-color); /* highlight the acronym letters */
+  font-weight: 700;
+}
 
 * {
     margin: 0;
@@ -22,12 +55,27 @@
 }
 
 body {
-    font-family: 'Poppins', sans-serif;
-    font-size: 16px;
-    line-height: 1.6;
-    color: var(--text-color);
-    overflow-x: hidden;
-    background-color: var(--white);
+  position: relative;
+  font-family: 'Poppins', sans-serif;
+  font-size: 16px;
+  line-height: 1.6;
+  color: var(--text-color);
+  overflow-x: hidden;
+  background-color: var(--white); /* Fallback color */
+}
+
+/* Create a semi-transparent background image layer */
+body::before {
+  content: "";
+  position: fixed; 
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: url('/assets/Nature_123.jpg') center / cover no-repeat;
+  opacity: 0.7; 
+  z-index: -1; 
+  pointer-events: none; 
 }
 
 a {
@@ -202,6 +250,33 @@ img {
     background-color: var(--primary-color);
     border-radius: 3px;
     transition: var(--transition);
+}
+
+
+/* Typewriter Animation for Harvest Club only */
+h1 span {
+    display: inline-block;
+    overflow: hidden;
+    vertical-align: bottom;
+    width: 0;
+    white-space: nowrap;
+    color: #dee7df;
+    animation: 
+        typing 2s steps(15, end) forwards,
+        blink-caret .75s step-end infinite;
+    animation-delay: 0.5s; /* Optional delay before starting */
+    border-right: .15em solid #eaebea; /* The cursor */
+}
+
+/* The typing effect */
+@keyframes typing {
+    to { width: 100%; }
+}
+
+/* The cursor blink effect */
+@keyframes blink-caret {
+    from, to { border-color: transparent }
+    50% { border-color: #4CAF50; }
 }
 
 /* Hero Section */
